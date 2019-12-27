@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorGroc">#AEC0A8</color>
+
+    <color name="White">#FFF</color>
+    <color name="Raro">#EBE9E4</color>
+    <color name="Blau">#4477BB</color>
+    <color name="iconomenu">#979592</color>
+    <color name="Negre">#0a0a0a</color>
+    <color name="colorTextBoxBack">#0A5D5B</color>
+    <color name="colorHint">#c3acacac</color>
+    <color name="colorLoginButton">#FFFFFF</color>
+    <color name="colorInput">#FFFFFF</color>
+    <color name="color_azul_flojo">#74B7EE</color>
+    <color name="colorfondowhite">#FFF</color>
+    <color name="colorfondogris">#018C89</color>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:id="@+id/selected"
+    android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:drawable="@drawable/imatge17" android:duration="2000" />
+    <item android:drawable="@drawable/imatge18" android:duration="2000" />
+    <item android:drawable="@drawable/imatge19" android:duration="2000" />
+    <item android:drawable="@drawable/imatge20" android:duration="2000" />
+    <item android:drawable="@drawable/imatge21" android:duration="2000" />
+    <item android:drawable="@drawable/imatge22" android:duration="1000" />
+    <item android:drawable="@drawable/imatge23" android:duration="1000" />
+    <item android:drawable="@drawable/imatge24" android:duration="1000" />
+    <item android:drawable="@drawable/imatge25" android:duration="2000" />
+    <item android:drawable="@drawable/imatge26" android:duration="2000" />
+
+</animation-list>
+
+
+
