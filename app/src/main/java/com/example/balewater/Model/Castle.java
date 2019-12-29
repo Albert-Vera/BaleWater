@@ -33,5 +33,13 @@ public class Castle {
         this.castleImage = castleImage;
     }
 
-    private String castleId, castleName, castleDescription, castleImage;
+    public String getCastleExplain() {
+        return castleExplain;
+    }
+
+    public void setCastleExplain(String castleExplain) {
+        this.castleExplain = castleExplain;
+    }
+
+    private String castleId, castleName, castleDescription, castleExplain, castleImage;
 }

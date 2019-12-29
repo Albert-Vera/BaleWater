@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,35 +12,29 @@
         android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/product_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:textAlignment="center"
-            android:textSize="28dp" />
 
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="0dp"
-            android:layout_weight="8"
-            android:alignmentMode="alignMargins"
-            android:columnCount="1"
-            android:columnOrderPreserved="false"
-            android:padding="1dp"
-            android:rowCount="12"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+
+<!--        <GridLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:layout_marginBottom="0dp"-->
+<!--            android:layout_weight="8"-->
+<!--            android:alignmentMode="alignMargins"-->
+<!--            android:columnCount="1"-->
+<!--            android:columnOrderPreserved="false"-->
+<!--            android:padding="1dp"-->
+<!--            android:rowCount="12"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent">-->
 
 
             <androidx.cardview.widget.CardView
-                android:layout_width="175dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
@@ -52,23 +46,40 @@
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="340dp"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
                     android:layout_column="0">
 
-                    <ImageView
-                        android:id="@+id/product_image"
-                        android:layout_width="355dp"
-                        android:layout_height="167dp"
-                        android:scaleType="fitXY"
-                        android:padding="10dp"
-
-                        app:layout_constraintBottom_toBottomOf="parent"
+                    <TextView
+                        android:id="@+id/product_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:layout_marginTop="62dp"
+                        android:layout_marginBottom="32dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/Negre"
+                        android:textSize="28dp"
+                        app:layout_constraintBottom_toTopOf="@+id/product_image"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0">
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/product_image"
+                        android:layout_width="320dp"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="32dp"
+                        android:padding="10dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toTopOf="@+id/textImage"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.52"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0.49">
 
                     </ImageView>
 
@@ -76,22 +87,39 @@
                         android:id="@+id/textImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="50dp"
-                        android:layout_margin="15dp"
 
-                        android:textColor="@color/White"
+                        android:padding="16dp"
+                        android:layout_marginTop="32dp"
+                        android:textColor="@color/Negre"
 
-                        android:textSize="22sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent">
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/product_image">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/textExplain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:padding="16dp"
+                        android:layout_marginTop="32dp"
+                        android:textColor="@color/Negre"
+
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textImage">
 
                     </TextView>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-        </GridLayout>
+<!--        </GridLayout>-->
 
 
     </LinearLayout>
 
-</ScrollView>
+</HorizontalScrollView>

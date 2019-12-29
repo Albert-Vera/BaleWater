@@ -3,14 +3,17 @@
     {
       "castleId": "c1",
       "castleName": "Birthday Party",
-      "castleImage" "https://raw.githubusercontent.com/Albertvedu/BaleWater/master/app/src/main/res/raw/imatge31.jpeg",
-      "castleDescription": "Suitable for children aged 3 to 15 years "
+      "castleImage": "https://raw.githubusercontent.com/Albertvedu/BaleWater/master/app/src/main/res/raw/imatge37.jpeg",
+      "castleDescription": "Suitable for children aged 3 to 15 years ",
+      "castleExplain": "\n\nLet your kids bounce around on this super party bouncer. The bouncy castle has a bright, balloon and celebration design that fits in with any party theme."
     },
     {
       "castleId": "c2",
       "castleName": "Water Slide Jumping",
-      "castleImage" "https://raw.githubusercontent.com/Albertvedu/BaleWater/master/app/src/main/res/raw/imatge31.jpeg",
-      "castleDescription": "Suitable for children aged 3 to 15 years "
+      "castleImage": "https://raw.githubusercontent.com/Albertvedu/BaleWater/master/app/src/main/res/raw/imatge31.jpeg",
+      "castleDescription": "Suitable for children aged 3 to 15 years ",
+      "castleExplain": "\n\nLet your kids bounce around on this super party bouncer. The bouncy castle has a bright, balloon and celebration design that fits in with any party theme."
+
     }
   ]
 

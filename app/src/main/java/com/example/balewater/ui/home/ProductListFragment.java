@@ -118,13 +118,14 @@ public class ProductListFragment extends Fragment {
         }
 
         class CastleViewHolder extends RecyclerView.ViewHolder {
-            TextView name, desc;
+            TextView name, desc, explain;
             ImageView imageItem;
 
             CastleViewHolder(@NonNull View itemView) {
                 super(itemView);
                 name = itemView.findViewById(R.id.product_name);
                 desc = itemView.findViewById(R.id.textImage);
+                explain = itemView.findViewById(R.id.textExplain);
 
 
                 imageItem = itemView.findViewById(R.id.product_image);

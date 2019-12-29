@@ -10,14 +10,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
-import com.example.balewater.MainActivity;
 import com.example.balewater.R;
 
 public class HomeFragment extends Fragment {
@@ -63,7 +62,7 @@ public class HomeFragment extends Fragment {
         view.findViewById(R.id.EntrarBoton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.detailProductFragment);
+                Navigation.findNavController(view).navigate(R.id.detailListFragment);
             }
         });
     }
