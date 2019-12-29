@@ -1,9 +1,15 @@
 package com.example.balewater.api;
 
-import android.app.DownloadManager;
 import android.util.Log;
 
 import java.io.IOException;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class BaleWaterApiModule {
@@ -14,7 +20,7 @@ public class BaleWaterApiModule {
                     .addInterceptor(new Interceptor() {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
-                            DownloadManager.Request request = chain.request();
+                            Request request = chain.request();
 
                             long c1 = System.nanoTime();
                             Log.e("INTERCEPTOR", String.format("Sending request %s on %s%n%s",

@@ -12,6 +12,7 @@ import com.example.balewater.Model.BaleWaterResponse;
 import com.example.balewater.Model.Castle;
 import com.example.balewater.Model.CastleDetail;
 import com.example.balewater.R;
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -49,7 +50,7 @@ public class DataViewModel extends AndroidViewModel {
     }
 
 
-    public LiveData<CastleDetail> obtenerCastleDetail(String tourId){
+    public LiveData<CastleDetail> obtenerCastleDetail(String castleId){
         final MutableLiveData<CastleDetail> apiResponse = new MutableLiveData<>();
 
         try {

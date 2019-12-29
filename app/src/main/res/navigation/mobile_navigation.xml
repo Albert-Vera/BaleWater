@@ -30,6 +30,11 @@
         android:name="com.example.balewater.ui.home.ProductListFragment"
         android:label="fragment_detail_list"
         tools:layout="@layout/fragment_product_list" />
+    <fragment
+        android:id="@+id/detailCastleFragment"
+        android:name="com.example.balewater.DetailCastleFragment"
+        android:label="fragment_detail_castle"
+        tools:layout="@layout/fragment_detail_castle" />
 
 
 </navigation>
