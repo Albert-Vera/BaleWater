@@ -1,0 +1,17 @@
+{
+  "castles": [
+    {
+      "castleId": "c1",
+      "castleName": "Birthday Party",
+      "castleImage" "https://raw.githubusercontent.com/Albertvedu/BaleWater/master/app/src/main/res/raw/",
+      "castleDescription": "Suitable for children aged 3 to 15 years "
+    },
+    {
+      "castleId": "c2",
+      "castleName": "Water Slide Jumping",
+      "castleImage" "https://raw.githubusercontent.com/Albertvedu/BaleWater/master/app/src/main/res/raw/",
+      "castleDescription": "Suitable for children aged 3 to 15 years "
+    }
+  ]
+
+}

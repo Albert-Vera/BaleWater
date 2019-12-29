@@ -10,6 +10,26 @@
         android:name="com.example.balewater.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.balewater.LoginRegister.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/registrarseFragment"
+        android:name="com.example.balewater.LoginRegister.RegistrarseFragment"
+        android:label="fragment_registrarse"
+        tools:layout="@layout/fragment_registrarse" />
+    <fragment
+        android:id="@+id/detailProductFragment"
+        android:name="com.example.balewater.ui.home.DetailProductFragment"
+        android:label="fragment_detail_product"
+        tools:layout="@layout/fragment_detail_product" />
+    <fragment
+        android:id="@+id/detailListFragment"
+        android:name="com.example.balewater.ui.home.ProductListFragment"
+        android:label="fragment_detail_list"
+        tools:layout="@layout/fragment_product_list" />
 
 
 </navigation>
