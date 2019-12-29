@@ -41,5 +41,19 @@ public class Castle {
         this.castleExplain = castleExplain;
     }
 
-    private String castleId, castleName, castleDescription, castleExplain, castleImage;
+    private String castleId;
+    private String castleName;
+    private String castleDescription;
+    private String castleExplain;
+    private String castleImage;
+
+    public String getCastlePrix() {
+        return castlePrix;
+    }
+
+    public void setCastlePrix(String castlePrix) {
+        this.castlePrix = castlePrix;
+    }
+
+    private String castlePrix;
 }

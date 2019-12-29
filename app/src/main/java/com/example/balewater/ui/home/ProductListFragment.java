@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -83,26 +84,27 @@ public class ProductListFragment extends Fragment {
 
             final Castle castle = castleList.get(position);
 
-            //holder.name.setText(tour.tourName);
+            holder.name.setText(castle.getCastleName());
             holder.desc.setText(castle.getCastleDescription());
+            holder.prix.setText(castle.getCastlePrix());
+            holder.explain.setText(castle.getCastleExplain());
             Log.e("ABCD", " lala " + castle.getCastleName());
             Glide.with(requireActivity()).load(castle.getCastleImage()).into(holder.imageItem);
 
-
-            if (castle.getCastleName() != null) {
-                holder.name.setText(castle.getCastleName());
-
-            } else {
-                holder.name.setVisibility(TextView.GONE);
-            }
-
+            holder.meInteresaButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dataViewModel.castle.setValue(castle);
+                    //TODO cambiar esta ruta ..
+                    Navigation.findNavController(view).navigate(R.id.detailListFragment);
+                }
+            });
 
             holder.imageItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     dataViewModel.castle.setValue(castle);
 
-                    Navigation.findNavController(view).navigate(R.id.detailCastleFragment);
                 }
             });
         }
@@ -118,20 +120,22 @@ public class ProductListFragment extends Fragment {
         }
 
         class CastleViewHolder extends RecyclerView.ViewHolder {
-            TextView name, desc, explain;
+            TextView name, desc, explain, prix;
             ImageView imageItem;
+            Button meInteresaButton;
 
             CastleViewHolder(@NonNull View itemView) {
                 super(itemView);
                 name = itemView.findViewById(R.id.product_name);
                 desc = itemView.findViewById(R.id.textImage);
                 explain = itemView.findViewById(R.id.textExplain);
-
-
+                prix = itemView.findViewById(R.id.textPrix);
+                meInteresaButton = itemView.findViewById(R.id.meInteresa);
                 imageItem = itemView.findViewById(R.id.product_image);
 
             }
         }
     }
+
 
 }

@@ -65,6 +65,8 @@ public class HomeFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.detailListFragment);
             }
         });
+
+
     }
 
     private void startAnimation(){

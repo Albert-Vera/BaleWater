@@ -6,31 +6,18 @@
     android:layout_height="wrap_content"
     android:fillViewport="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        >
 
 
-
-
-
-<!--        <GridLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_alignParentBottom="true"-->
-<!--            android:layout_marginTop="0dp"-->
-<!--            android:layout_marginBottom="0dp"-->
-<!--            android:layout_weight="8"-->
-<!--            android:alignmentMode="alignMargins"-->
-<!--            android:columnCount="1"-->
-<!--            android:columnOrderPreserved="false"-->
-<!--            android:padding="1dp"-->
-<!--            android:rowCount="12"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="52dp"
+            android:layout_marginBottom="52dp">
 
 
             <androidx.cardview.widget.CardView
@@ -40,7 +27,7 @@
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="55dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -48,6 +35,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="340dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="72dp"
                     android:layout_row="0"
                     android:layout_column="0">
 
@@ -71,7 +59,7 @@
                         android:layout_width="320dp"
                         android:layout_height="250dp"
                         android:layout_marginTop="32dp"
-                        android:layout_marginBottom="32dp"
+                        android:layout_marginBottom="16dp"
                         android:padding="10dp"
                         android:scaleType="fitXY"
                         app:layout_constraintBottom_toTopOf="@+id/textImage"
@@ -83,29 +71,46 @@
 
                     </ImageView>
 
+
+
                     <TextView
                         android:id="@+id/textImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:padding="16dp"
-                        android:layout_marginTop="32dp"
-                        android:textColor="@color/Negre"
-
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_width="80dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/rounded_shape_blau"
+                        android:paddingVertical="15dp"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toStartOf="@id/textPrix"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/product_image">
 
                     </TextView>
+                    <TextView
+                        android:id="@+id/textPrix"
+                        android:layout_width="80dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="90dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/rounded_shape_blau"
+                        android:paddingVertical="15dp"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/textPrix"
+                        app:layout_constraintTop_toBottomOf="@id/product_image">
+
+                    </TextView>
+
+
+
 
                     <TextView
                         android:id="@+id/textExplain"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:padding="16dp"
-                        android:layout_marginTop="32dp"
+                        android:layout_height="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingBottom="32dp"
                         android:textColor="@color/Negre"
 
                         android:textSize="16sp"
@@ -115,11 +120,25 @@
 
                     </TextView>
 
+                    <Button
+                        android:id="@+id/meInteresa"
+                        android:layout_width="200dp"
+                        android:layout_height="52dp"
+                        android:layout_marginBottom="55dp"
+                        android:layout_gravity="center|bottom"
+                        android:text="Me interesa"
+                        style="@style/AppTheme.RoundedCornerMaterialButton"
+                        android:ellipsize="none"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textExplain"
+                        >
+                    </Button>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-<!--        </GridLayout>-->
 
-
-    </LinearLayout>
-
+        </LinearLayout>
+    </ScrollView>
 </HorizontalScrollView>
