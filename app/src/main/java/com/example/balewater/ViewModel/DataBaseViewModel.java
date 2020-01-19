@@ -12,6 +12,7 @@ import com.example.balewater.Model.BaleWaterResponse;
 import com.example.balewater.Model.Castle;
 import com.example.balewater.Model.CastleDetail;
 import com.example.balewater.R;
+import com.example.balewater.api.BaleWaterApiModule;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -19,13 +20,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-public class DataViewModel extends AndroidViewModel {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class DataBaseViewModel extends AndroidViewModel {
 
     Application application;
 
     public MutableLiveData<Castle> castle = new MutableLiveData<>();
 
-    public DataViewModel(@NonNull Application application) {
+    public DataBaseViewModel(@NonNull Application application) {
         super(application);
         this.application = application;
 
@@ -71,22 +76,22 @@ public class DataViewModel extends AndroidViewModel {
         return apiResponse;
     }
 
-//    public LiveData<BarceloninaResponse> obtenerTours(){
-//        final MutableLiveData<BarceloninaResponse> apiResponse = new MutableLiveData<>();
-//
-//        BarceloninaApiModule.barceloninaApi.obtenerTours().enqueue(new Callback<BarceloninaResponse>() {
-//            @Override
-//            public void onResponse(Call<BarceloninaResponse> call, Response<BarceloninaResponse> response) {
-//                apiResponse.postValue(response.body());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<BarceloninaResponse> call, Throwable t) {
-//            }
-//        });
-//
-//        return apiResponse;
-//    }
+    public LiveData<BaleWaterResponse> obtenerCastles(){
+        final MutableLiveData<BaleWaterResponse> apiResponse = new MutableLiveData<>();
+
+        BaleWaterApiModule.baleWaterApi.obtenerCastle().enqueue(new Callback<BaleWaterResponse>() {
+            @Override
+            public void onResponse(Call<BaleWaterResponse> call, Response<BaleWaterResponse> response) {
+                apiResponse.postValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<BaleWaterResponse> call, Throwable t) {
+            }
+        });
+
+        return apiResponse;
+    }
 //
 //    public LiveData<TourDetail> obtenerTour(String id){
 //        final MutableLiveData<TourDetail> tourDetailMutableLiveData = new MutableLiveData<>();

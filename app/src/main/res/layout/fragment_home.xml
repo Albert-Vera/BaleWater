@@ -68,7 +68,7 @@
             android:layout_marginTop="30dp"
             android:ellipsize="none"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="Entrar" />
+            android:text="GET IN" />
 
     </LinearLayout>
 </FrameLayout>

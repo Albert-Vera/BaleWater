@@ -126,7 +126,7 @@
                         android:layout_height="52dp"
                         android:layout_marginBottom="55dp"
                         android:layout_gravity="center|bottom"
-                        android:text="Me interesa"
+                        android:text="@string/me_interesa"
                         style="@style/AppTheme.RoundedCornerMaterialButton"
                         android:ellipsize="none"
                         android:fontFamily="sans-serif-condensed-medium"

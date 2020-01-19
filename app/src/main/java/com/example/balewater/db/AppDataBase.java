@@ -44,7 +44,13 @@ public abstract class AppDataBase extends androidx.room.RoomDatabase{
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                appDataBase.appDao().insertarUsuario(new Usuario("admin","admin"));
+                appDataBase.appDao().insertarUsuario(new Usuario("aaaaaa@aaaaaa.com","aaaaaa"));
+                appDataBase.appDao().insertarUsuario(new Usuario("EMPLEADO.001","EMPLEADO"));
+                appDataBase.appDao().insertarUsuario(new Usuario("EMPLEADO.002","EMPLEADO"));
+                appDataBase.appDao().insertarUsuario(new Usuario("EMPLEADO.003","EMPLEADO"));
+                appDataBase.appDao().insertarUsuario(new Usuario("EMPLEADO.004","EMPLEADO"));
+
+
             }
         });
     }

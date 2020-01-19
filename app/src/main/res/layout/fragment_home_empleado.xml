@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeEmpleado.HomeEmpleadoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:orientation="vertical"
+        android:background="@drawable/nugols">
+
+
+        <TextView
+            android:id="@+id/diverTextView_empleado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="140dp"
+            android:padding="10dp"
+            android:rotation="360"
+            android:text="Diver"
+            android:textColor="@color/Blau"
+            android:textSize="12sp"
+            >
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_home_empledo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="140dp"
+            android:textColor="@color/Blau"
+
+            android:text="Bale Water"
+            android:textSize="12sp"
+            >
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="180dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/uno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="10sp"
+                android:text="latest reservations"
+                android:background="@drawable/cuadradet_shape"/>
+            <Button
+                android:id="@+id/dos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="10sp"
+                android:text="orders to serve"
+                android:background="@drawable/cuadradet_shape"/>
+            <Button
+                android:id="@+id/tres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="10sp"
+                android:text="claims"
+                android:background="@drawable/cuadradet_shape"/>
+        </LinearLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginEnd="46dp">
+
+            <Button
+                android:id="@+id/cuatro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="10sp"
+                android:text="cosas"
+                android:background="@drawable/cuadradet_shape"/>
+            <Button
+                android:id="@+id/cinco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="10sp"
+                android:text="más cosas"
+                android:background="@drawable/cuadradet_shape"/>
+            <Button
+                android:id="@+id/seis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="10sp"
+                android:text="Nóminas"
+                android:background="@drawable/cuadradet_shape"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

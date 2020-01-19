@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,7 +25,7 @@ import com.bumptech.glide.Glide;
 import com.example.balewater.Model.BaleWaterResponse;
 import com.example.balewater.Model.Castle;
 import com.example.balewater.R;
-import com.example.balewater.ViewModel.DataViewModel;
+import com.example.balewater.ViewModel.DataBaseViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,7 @@ import java.util.List;
 public class ProductListFragment extends Fragment {
 
     CastleAdapter castleAdapter;
-    DataViewModel dataViewModel;
+    DataBaseViewModel dataViewModel;
 
 
     public ProductListFragment() {}
@@ -51,7 +53,7 @@ public class ProductListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        dataViewModel = ViewModelProviders.of(requireActivity()).get(DataViewModel.class);
+        dataViewModel = ViewModelProviders.of(requireActivity()).get(DataBaseViewModel.class);
 
         RecyclerView recyclerView = view.findViewById(R.id.itemList);
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.HORIZONTAL));
@@ -91,22 +93,21 @@ public class ProductListFragment extends Fragment {
             Log.e("ABCD", " lala " + castle.getCastleName());
             Glide.with(requireActivity()).load(castle.getCastleImage()).into(holder.imageItem);
 
+            holder.imageItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    holder.startAnimationImage();
+                }
+            });
             holder.meInteresaButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     dataViewModel.castle.setValue(castle);
                     //TODO cambiar esta ruta ..
-                    Navigation.findNavController(view).navigate(R.id.detailListFragment);
+                    Navigation.findNavController(view).navigate(R.id.reservarCastleFragment);
                 }
             });
 
-            holder.imageItem.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dataViewModel.castle.setValue(castle);
-
-                }
-            });
         }
 
         @Override
@@ -134,8 +135,16 @@ public class ProductListFragment extends Fragment {
                 imageItem = itemView.findViewById(R.id.product_image);
 
             }
+            private void startAnimationImage(){
+
+                Animation animation = AnimationUtils.loadAnimation(requireActivity(), R.anim.anim_image);
+                imageItem.startAnimation(animation);
+                imageItem.animate().cancel();
+            }
         }
+
     }
+
 
 
 }

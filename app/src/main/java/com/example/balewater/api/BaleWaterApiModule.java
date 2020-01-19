@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BaleWaterApiModule {
 
     public static BaleWaterApi baleWaterApi = new Retrofit.Builder()
-            .baseUrl("https://raw.githubusercontent.com/Albertvedu/BaleWater/master/app/src/main/res/raw/")
+            .baseUrl("jdbc:mysql://localhost:3306/BaleWater")
             .client(new OkHttpClient.Builder()
                     .addInterceptor(new Interceptor() {
                         @Override

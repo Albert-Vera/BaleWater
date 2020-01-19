@@ -7,6 +7,8 @@ import android.util.Patterns;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -16,10 +18,17 @@ import com.example.balewater.R;
 import com.example.balewater.db.AppDao;
 import com.example.balewater.db.AppDataBase;
 
-public class AutenticationViewModel extends AndroidViewModel {
+public class AutenticationViewModel extends AndroidViewModel implements LifecycleOwner {
 
     public MutableLiveData<Boolean> usuarioActivo= new MutableLiveData<>();
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
+
+
+    @NonNull
+    @Override
+    public Lifecycle getLifecycle() {
+        return null;
+    }
 
 
     public enum EstadoDeLaAutentication {
@@ -35,13 +44,19 @@ public class AutenticationViewModel extends AndroidViewModel {
         REGISTRO_COMPLETADO
     }
 
+    public enum LoginEmpleado {
+        LOGIN_EMPLEADO,
+        LOGIN_CLIENTE
+
+    }
+
     private AppDao appDao;
 
     public Usuario usuarioLogeado;
 
     public MutableLiveData<EstadoDeLaAutentication> estadoDeLaAutentication = new MutableLiveData<>(EstadoDeLaAutentication.NO_AUTENTIFICADO);
-    public MutableLiveData<EstadoDelRegistro> estadoDelRegistro = new MutableLiveData<>(EstadoDelRegistro.INICIO_DEL_REGISTRO);
-
+    private MutableLiveData<EstadoDelRegistro> estadoDelRegistro = new MutableLiveData<>(EstadoDelRegistro.INICIO_DEL_REGISTRO);
+    private MutableLiveData<LoginEmpleado> loginEmpleadoMutableData = new MutableLiveData<>();
     public LiveData<LoginFormState> getLoginFormState() {
         return loginFormState;
     }
@@ -50,6 +65,14 @@ public class AutenticationViewModel extends AndroidViewModel {
         super(application);
         appDao = AppDataBase.getInstance(application).appDao();
 
+    }
+
+    public MutableLiveData<EstadoDelRegistro> getEstadoDelRegistro() {
+        return estadoDelRegistro;
+    }
+
+    public MutableLiveData<LoginEmpleado> getLoginEmpleadoMutableData() {
+        return loginEmpleadoMutableData;
     }
 
     public void iniciarRegistro(){
@@ -71,14 +94,35 @@ public class AutenticationViewModel extends AndroidViewModel {
                 }
             }
         });
+
     }
 
-    public void iniciarSesion(final String nombre, final String contrasenya) {
+    public void iniciarSesion(final String correo, final String contrasenya) {
+
+
+
+//
+//        loginEmpleadoMutableData.observe(getViewLifecycleOwner(), new Observer<LoginEmpleado>() {
+//            @Override
+//            public void onChanged(LoginEmpleado loginEmpleadoMutableData) {
+//                switch (loginEmpleadoMutableData){
+//                    case LOGIN_CLIENTE:
+//                            Log.e ("ABCD", "toy en observer cliente");
+//                        break;
+//                    case LOGIN_EMPLEADO:
+//                        Log.e ("ABCD", "toy en observer empleado");
+//
+//                        break;
+//                }
+//            }
+//        });
+
+
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                Usuario usuario = appDao.autenticar(nombre, contrasenya);
-                if(usuario != null || usuario.email.equalsIgnoreCase("a")){
+                Usuario usuario = appDao.autenticar(correo, contrasenya);
+                if(usuario != null ){
                     usuarioLogeado = usuario;
                     estadoDeLaAutentication.postValue(EstadoDeLaAutentication.AUTENTIFICADO);
                     usuarioActivo.postValue(true);
@@ -86,18 +130,23 @@ public class AutenticationViewModel extends AndroidViewModel {
                 } else {
                     estadoDeLaAutentication.postValue(EstadoDeLaAutentication.AUTENTIFICACION_INVALIDA);
                 }
+                //TODO este condicional es para acceso pruebas (quitarlo al acabar)
+                if ( correo.equalsIgnoreCase("a")) {
+                    estadoDeLaAutentication.postValue(EstadoDeLaAutentication.AUTENTIFICADO);
+                }
             }
         });
     }
+
 
     public void cerrarSesion() {
         usuarioLogeado = null;
         estadoDeLaAutentication.setValue(EstadoDeLaAutentication.NO_AUTENTIFICADO);
     }
 
-    public void loginDataChanged(String username, String password) {
-        if (!isUserNameValid(username)) {
-            loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
+    public void loginDataChanged(String useremail, String password) {
+        if (!isUserEmailValid(useremail)) {
+            loginFormState.setValue(new LoginFormState(R.string.invalid_useremail, null));
         } else if (!isPasswordValid(password)) {
             loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
         } else {
@@ -105,16 +154,16 @@ public class AutenticationViewModel extends AndroidViewModel {
         }
     }
 
-    // A placeholder username validation check
-    private boolean isUserNameValid(String username) {
-        if (username.equalsIgnoreCase("a")) return true;
-        if (username == null) {
+    // A placeholder useremail validation check
+    private boolean isUserEmailValid(String useremail) {
+        if (useremail.equalsIgnoreCase("a")) return true;
+        if (useremail == null) {
             return false;
         }
-        if (username.contains("@")) {
-            return Patterns.EMAIL_ADDRESS.matcher(username).matches();
+        if (useremail.contains("@")) {
+            return Patterns.EMAIL_ADDRESS.matcher(useremail).matches();
         } else {
-            return !username.trim().isEmpty();
+            return !useremail.trim().isEmpty();
         }
     }
 

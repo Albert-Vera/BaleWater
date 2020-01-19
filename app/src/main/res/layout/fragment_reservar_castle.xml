@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="50dp"
+    tools:context=".ui.home.ReservarCastleFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/email_icon">
+
+            </ImageView>
+            <TextView
+
+                android:id="@+id/baleWaterRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="94dp"
+
+                android:fontFamily="cursive"
+                android:text="@string/app_name"
+
+                android:textAlignment="center"
+                android:textSize="45dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/make_reserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="@string/Fer_reserva"
+            android:textStyle="bold"
+            android:textColor="@color/color_azul_flojo"
+            android:textAlignment="center"
+            android:textSize="22dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/nombreCliente"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="60dp"
+            android:hint="Nom"
+            android:textColorHint="@color/colorHint"
+            android:textColor="@color/Negre"
+
+            android:textSize="18sp">
+
+        </EditText>
+        <EditText
+            android:id="@+id/apellidosCliente"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+
+            android:hint="Cognoms"
+            android:padding="5dp"
+            android:textColor="@color/colorInput"
+            android:textColorHint="@color/colorHint"
+            android:textSize="18sp">
+        </EditText>
+        <EditText
+            android:id="@+id/emailreserva"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+
+            android:hint="Email"
+            android:padding="5dp"
+
+            android:textColor="@color/colorInput"
+            android:textColorHint="@color/colorHint"
+            android:textSize="18sp">
+        </EditText>
+        <EditText
+            android:id="@+id/telefon_edittext"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:hint="@string/phone"
+            android:padding="5dp"
+
+            android:textColor="@color/colorInput"
+            android:textColorHint="@color/colorHint"
+            android:textSize="18sp">
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/reserva_data"
+            android:textColor="@color/color_azul_flojo"
+            android:textAlignment="center"
+            android:textSize="18dp">
+
+        </TextView>
+
+        <DatePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"/>
+
+        <EditText
+            android:id="@+id/observacions"
+            android:layout_width="290dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/White"
+            android:hint="Observacions"
+            android:padding="5dp"
+
+            android:textColor="@color/colorInput"
+            android:textColorHint="@color/colorHint"
+            android:textSize="18sp">
+        </EditText>
+        <Button
+            android:id="@+id/enviarReserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="150dp"
+            android:text="Enviar">
+
+        </Button>
+    </LinearLayout>
+
+</ScrollView>

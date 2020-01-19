@@ -2,7 +2,20 @@ package com.example.balewater.LoginRegister;
 
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
@@ -12,35 +25,21 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.balewater.R;
 import com.example.balewater.ViewModel.AutenticationViewModel;
+import com.example.balewater.ViewModel.EmpleadoViewModel;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment {
-
+public class LoginClienteFragment extends Fragment {
 
     private AutenticationViewModel autenticationViewModel;
+    EmpleadoViewModel empleadoViewModel;
 
 
-    public LoginFragment() {
+    public LoginClienteFragment() {
         // Required empty public constructor
     }
 
@@ -49,7 +48,7 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        return inflater.inflate(R.layout.fragment_login_cliente, container, false);
     }
 
     @Override
@@ -58,12 +57,10 @@ public class LoginFragment extends Fragment {
 
         autenticationViewModel = ViewModelProviders.of(requireActivity()).get(AutenticationViewModel.class);
 
-
-        final EditText usernameEditText = view.findViewById(R.id.username);
+        final EditText userEmailEditText = view.findViewById(R.id.user_email);
         final EditText passwordEditText = view.findViewById(R.id.password);
         final Button loginButton = view.findViewById(R.id.login_button);
         final TextView irAlRegistroTextView = view.findViewById(R.id.ir_registro);
-
 
         irAlRegistroTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +68,33 @@ public class LoginFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.registrarseFragment);
             }
         });
+
+//        autenticationViewModel.getLoginEmpleadoMutableData().observe(getViewLifecycleOwner(), new Observer<AutenticationViewModel.LoginEmpleado>() {
+//            @Override
+//            public void onChanged(AutenticationViewModel.LoginEmpleado loginEmpleadoMutableData) {
+//                final EditText cosas;
+//
+//                switch (loginEmpleadoMutableData){
+//                    case LOGIN_CLIENTE:
+//                        userStaffEditText.setVisibility(EditText.GONE);
+//                        userEmailEditText.setVisibility(EditText.VISIBLE);
+//                        irAlRegistroTextView.setVisibility(TextView.VISIBLE);
+//                        //userEmailEditText = view.findViewById(R.id.user_email);
+//                        break;
+//                    case LOGIN_EMPLEADO:
+//                        userEmailEditText.setVisibility(EditText.GONE);
+//                        irAlRegistroTextView.setVisibility(TextView.GONE);
+//                        userStaffEditText.setVisibility(EditText.VISIBLE);
+//                        //userEmailEditText = view.findViewById(R.id.user_staff);
+//                        //TODO navigate provisonal en aunsencia de autentificación empleado
+//                        // Navigation.findNavController(view).navigate(R.id.activityMainEmpleado);
+//
+//
+//                        break;
+//                }
+//            }
+//        });
+
 
         // Si FormState es isDataValid mostrara en pantalla error o no mostrara
         autenticationViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -80,8 +104,8 @@ public class LoginFragment extends Fragment {
                     return;
                 }
                 loginButton.setEnabled(loginFormState.isDataValid());
-                if (loginFormState.getUsernameError() != null) {
-                    usernameEditText.setError(getString(loginFormState.getUsernameError()));
+                if (loginFormState.getUserEmailError() != null) {
+                    userEmailEditText.setError(getString(loginFormState.getUserEmailError()));
                 }
                 if (loginFormState.getPasswordError() != null) {
                     passwordEditText.setError(getString(loginFormState.getPasswordError()));
@@ -104,31 +128,41 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                Log.e("ABCD", " lalalo " );
-
-                autenticationViewModel.loginDataChanged(usernameEditText.getText().toString(),
+                autenticationViewModel.loginDataChanged(userEmailEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
         };
-        usernameEditText.addTextChangedListener(afterTextChangedListener);
+
+//        empleadoViewModel.estoyLoginStaff.observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(String aString) {
+//                if(empleadoViewModel.estoyLoginStaff.equals("al")){
+//                    Log.e("ABCD", " cagate Maria " );
+//
+//                }
+//            }
+//        });
+
+
+        userEmailEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
+
 
         passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    autenticationViewModel.iniciarSesion(usernameEditText.getText().toString(),
+                    autenticationViewModel.iniciarSesion(userEmailEditText.getText().toString(),
                             passwordEditText.getText().toString());
                 }
                 return false;
             }
         });
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                autenticationViewModel.iniciarSesion(usernameEditText.getText().toString(),
+                autenticationViewModel.iniciarSesion(userEmailEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
         });
@@ -138,8 +172,7 @@ public class LoginFragment extends Fragment {
             public void onChanged(AutenticationViewModel.EstadoDeLaAutentication estadoDeLaAutenticacion) {
                 switch (estadoDeLaAutenticacion){
                     case AUTENTIFICADO:
-                        Log.e("ABCD", " toy aqui Usuario Ade aqui me voy a.... " );
-                        Navigation.findNavController(view).popBackStack(); //regresa patras
+                        Navigation.findNavController(view).navigate(R.id.nav_home);
 
                         new AlertDialog.Builder(requireContext()).setTitle("\t\t           LOGIN IN      ")
                                 .setMessage("\t      ")
@@ -154,12 +187,25 @@ public class LoginFragment extends Fragment {
                     // YA AUTENTIFICADO es para si le das por segunda vez a LOGIN
                     // te detecta como YA ATENTIFICADO y entonces pues hace LOGIN OUT
                     case YA_AUTENTIFICADO:
-                        autenticationViewModel.cerrarSesion();
 
-                        new AlertDialog.Builder(requireContext()).setTitle("\t\t           LOGIN OUT      ")
+                        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+
+                        builder.setTitle("\t\t           LOGIN OUT      ")
                                 .setMessage("\t      ")
-                                .setMessage("\t                Estas Fora               ")
-                                .setCancelable(true)
+                                .setMessage("\tAre you sure?")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        autenticationViewModel.cerrarSesion();
+                                        Navigation.findNavController(view).navigate(R.id.nav_home);
+                                    }
+                                })
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Navigation.findNavController(view).navigate(R.id.nav_home);
+                                    }
+                                })
                                 .create()
                                 .show();
                         break;
@@ -177,9 +223,10 @@ public class LoginFragment extends Fragment {
                     @Override
                     public void handleOnBackPressed() {
                         Log.e("ABCD", " toy aqui Usuario toy en getonBackPressed en Autentificacion " );
+                        Navigation.findNavController(view).navigate(R.id.nav_home);
 
-                        Navigation.findNavController(view).popBackStack();// modificat destino
                     }
                 });
     }
+
 }

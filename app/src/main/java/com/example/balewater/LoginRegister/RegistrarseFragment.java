@@ -2,14 +2,6 @@ package com.example.balewater.LoginRegister;
 
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavController;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.example.balewater.Model.Usuario;
 import com.example.balewater.R;
@@ -59,23 +59,6 @@ public class RegistrarseFragment extends Fragment {
         emailEditText = view.findViewById(R.id.username_register);
         passwordEditText = view.findViewById(R.id.password_register);
         registrarButton = view.findViewById(R.id.register_button);
-        // navController = Navigation.findNavController(view);
-
-
-//        if (mainViewModel.quiereRegistrarse ) { // VIENE DE DETAILFRAMENT "BOTON ME INTERESA"
-//
-//            view.findViewById(R.id.noregistrarme).setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//
-//                    Navigation.findNavController(view).navigate(R.id.reservarTourFragment);
-//                }
-//            });
-//            mainViewModel.quiereRegistrarse = false;
-//        }else{
-//            noRegistrar = view.findViewById(R.id.noregistrarme);
-//            noRegistrar.setVisibility(TextView.GONE);
-//        }
 
 
         autenticationViewModel = ViewModelProviders.of(requireActivity()).get(AutenticationViewModel.class);
@@ -87,13 +70,12 @@ public class RegistrarseFragment extends Fragment {
         registrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("ABCD", " antess de fer clic.... " );
+
                 autenticationViewModel.crearCuentaEIniciarSesion(emailEditText.getText().toString(), passwordEditText.getText().toString());
-                Log.e("ABCD", " despres de fer clic.... " );
             }
         });
 
-        autenticationViewModel.estadoDelRegistro.observe(getViewLifecycleOwner(), new Observer<AutenticationViewModel.EstadoDelRegistro>() {
+        autenticationViewModel.getEstadoDelRegistro().observe(getViewLifecycleOwner(), new Observer<AutenticationViewModel.EstadoDelRegistro>() {
             @Override
             public void onChanged(AutenticationViewModel.EstadoDelRegistro estadoDelRegistro) {
                 switch (estadoDelRegistro){
@@ -110,7 +92,7 @@ public class RegistrarseFragment extends Fragment {
                 switch (estadoDeLaAutentication){
                     case AUTENTIFICADO:
                         Log.e("ABCD", " toy aqui Usuario toy en Autentificado 231.. " );
-                        //Navigation.findNavController(view).popBackStack();
+                        Navigation.findNavController(view).popBackStack(R.id.nav_home, false);// modificat destino
                         break;
                 }
             }

@@ -22,8 +22,8 @@ import com.example.balewater.R;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    TextView animTextView, animTextView2;
-    ImageView imgHome;
+    private TextView animTextView, animTextView2;
+    private ImageView imgHome;
     private AnimationDrawable frameAnimation;
 
 
@@ -66,8 +66,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
     }
+
 
     private void startAnimation(){
 

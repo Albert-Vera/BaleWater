@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Raro"
+    tools:context=".ui.home.ContactFragment">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/email_icon">
+
+            </ImageView>
+            <TextView
+
+                android:id="@+id/baleWaterRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="94dp"
+
+                android:fontFamily="cursive"
+                android:text="@string/app_name"
+
+                android:textAlignment="center"
+                android:textSize="45dp" />
+
+        </LinearLayout>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="65dp"
+            android:layout_marginTop="26dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/contacteTitol"
+                android:textStyle="bold"
+
+                android:textAlignment="center"
+                android:textSize="22sp">
+
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="@string/contacteText2"
+                android:paddingBottom="36dp"
+
+                android:textAlignment="center"
+                android:textSize="16sp">
+
+            </TextView>
+        </androidx.cardview.widget.CardView>
+        <EditText
+            android:id="@+id/nombre"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="60dp"
+            android:background="@color/White"
+            android:hint="Nom"
+            android:padding="5dp"
+            android:textColor="@color/colorInput"
+            android:textColorHint="@color/colorHint"
+            android:textSize="18sp">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/emailreserva"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/White"
+
+            android:hint="E-mail"
+            android:padding="5dp"
+
+            android:textColor="@color/colorInput"
+            android:textColorHint="@color/colorHint"
+            android:textSize="18sp">
+        </EditText>
+
+        <EditText
+            android:id="@+id/pais"
+            android:layout_width="290dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/White"
+            android:hint="Nº Telèfon"
+            android:padding="5dp"
+
+            android:textColor="@color/colorInput"
+            android:textColorHint="@color/colorHint"
+            android:textSize="18sp">
+        </EditText>
+
+
+
+        <EditText
+            android:id="@+id/observacions"
+            android:layout_width="290dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/White"
+            android:hint="El teu missatge"
+            android:padding="5dp"
+
+            android:textColor="@color/colorInput"
+            android:textColorHint="@color/colorHint"
+            android:textSize="18sp">
+        </EditText>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/phoneContacte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_azul_flojo"
+                android:drawableLeft="@drawable/ic_contact_phone_black_24dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="25dp"
+                android:text="666666666"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/adresaEmail"
+                android:textColor="@color/color_azul_flojo"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp">
+
+            </TextView>
+        </LinearLayout>
+        <Button
+            android:id="@+id/contacteBoton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="180dp"
+            android:text="Enviar">
+
+        </Button>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

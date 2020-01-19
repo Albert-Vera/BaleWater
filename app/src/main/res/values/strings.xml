@@ -7,26 +7,45 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!--        Menu-->
     <string name="menu_home">     Welcome to Bale Water   </string>
+    <string name="menu_contact">Contact</string>
+
     <string name="menu_login">Login IN/OUT</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
+    <string name="menu_reservas">Latest Reservations</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
+    <string name="prompt_id_staff">id Staff</string>
+
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in </string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_useremail">Not a valid userEmail</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="gotoRegister">"GO TO REGISTER"</string>
-    <string name="access_staff">"Access Staff"</string>
 
+    <string name="access_staff">"Access Staff IN/OUT"</string>
+
+    <!--        -->
+    <string name="me_interesa">I Want it</string>
+    <string name="Fer_reserva">Make Reservation</string>
+    <string name="reserva_data">Date Reservation</string>
+
+    <string name="phone">Phone</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main_empleado_fragment">MainEmpleadoFragment</string>
+    <string name="ultimas_reservas">Reservations Made</string>
+
+    <string name="adresaEmail">goodmorning@castle.com</string>
+    <string name="contacteTitol">how can we help you ?</string>
+    <string name="contacteText2">To provide us with your feedback on our products and services or if you would like more information about them, please complete this online form. We will send all your request information to your e-mail in 24 hours. Please check your e-mail in time.</string>
+
 </resources>
