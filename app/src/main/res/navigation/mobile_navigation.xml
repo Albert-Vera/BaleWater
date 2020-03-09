@@ -3,56 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/homeFragment">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.balewater.ui.home.HomeFragment"
+        android:id="@+id/homeFragment"
+        android:name="com.example.balewater.ui.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/registrarseFragment"
-        android:name="com.example.balewater.LoginRegister.RegistrarseFragment"
-        android:label=""
-        tools:layout="@layout/fragment_registrarse" />
-
-    <fragment
-        android:id="@+id/detailListFragment"
-        android:name="com.example.balewater.ui.home.ProductListFragment"
+        android:id="@+id/productListFragment"
+        android:name="com.example.balewater.ui.ProductListFragment"
         android:label=""
         tools:layout="@layout/fragment_product_list" />
 
     <fragment
         android:id="@+id/reservarCastleFragment"
-        android:name="com.example.balewater.ui.home.ReservarCastleFragment"
+        android:name="com.example.balewater.ui.ReservarCastleFragment"
         android:label=""
         tools:layout="@layout/fragment_reservar_castle" />
+
     <fragment
-        android:id="@+id/loginEmpleadoFragment"
-        android:name="com.example.balewater.LoginRegister.LoginEmpleadoFragment"
+        android:id="@+id/signInFragment"
+        android:name="com.example.balewater.ui.SignInFragment"
         android:label=""
-        tools:layout="@layout/fragment_login_empleado" />
+        tools:layout="@layout/fragment_sign_in" />
+
     <fragment
-        android:id="@+id/loginClienteFragment"
-        android:name="com.example.balewater.LoginRegister.LoginClienteFragment"
+        android:id="@+id/signOutFragment"
+        android:name="com.example.balewater.ui.SignOutFragment"
         android:label=""
-        tools:layout="@layout/fragment_login_cliente" />
-    <fragment
-        android:id="@+id/homeEmpleadoFragment"
-        android:name="com.example.balewater.HomeEmpleado.HomeEmpleadoFragment"
-        android:label="Access Staff"
-        tools:layout="@layout/fragment_home_empleado" />
+        tools:layout="@layout/fragment_sign_out" />
+
     <fragment
         android:id="@+id/contactFragment"
-        android:name="com.example.balewater.ui.home.ContactFragment"
+        android:name="com.example.balewater.ui.ContactFragment"
         android:label=""
         tools:layout="@layout/fragment_contact" />
+
     <fragment
         android:id="@+id/ultimasReservasFragment"
-        android:name="com.example.balewater.HomeEmpleado.UltimasReservasFragment"
+        android:name="com.example.balewater.ui.UltimasReservasFragment"
         android:label="fragment_ultimas_reservas"
         tools:layout="@layout/fragment_ultimas_reservas" />
 
+    <fragment
+        android:id="@+id/listaClientesFragment"
+        android:name="com.example.balewater.ui.ListaClientesFragment"
+        android:label="Llista_clientes"
+        tools:layout="@layout/fragment_lista_clientes" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.balewater.ui.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 
 </navigation>

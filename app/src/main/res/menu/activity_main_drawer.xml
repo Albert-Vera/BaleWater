@@ -5,38 +5,22 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/homeFragment"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/contactFragment"
             android:icon="@drawable/ic_email_black_24dp"
             android:title="@string/menu_contact" />
+
         <item
-            android:id="@+id/loginClienteFragment"
+            android:id="@+id/signOutFragment"
             android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="@string/menu_login" />
         <item
-            android:id="@+id/loginEmpleadoFragment"
-            android:icon="@drawable/ic_lock_white_24dp"
-            android:title="@string/access_staff" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_assignment_black_24dp"
-            android:title="@string/menu_reservas" />
+            android:id="@+id/listaClientesFragment"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="Lista Clientes" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
 
 </menu>

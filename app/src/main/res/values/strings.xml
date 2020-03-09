@@ -11,7 +11,7 @@
     <string name="menu_home">     Welcome to Bale Water   </string>
     <string name="menu_contact">Contact</string>
 
-    <string name="menu_login">Login IN/OUT</string>
+    <string name="menu_login">Login OUT</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_reservas">Latest Reservations</string>
     <string name="menu_share">Share</string>

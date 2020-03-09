@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="50dp"
-    tools:context=".ui.home.ReservarCastleFragment">
+    android:background="@color/Raro"
+    tools:context=".ui.ReservarCastleFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,7 +68,7 @@
 
         </EditText>
         <EditText
-            android:id="@+id/apellidosCliente"
+            android:id="@+id/apellidosClienteReserva"
             android:layout_width="290dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -76,12 +76,11 @@
 
             android:hint="Cognoms"
             android:padding="5dp"
-            android:textColor="@color/colorInput"
             android:textColorHint="@color/colorHint"
             android:textSize="18sp">
         </EditText>
         <EditText
-            android:id="@+id/emailreserva"
+            android:id="@+id/emailreserva_castle"
             android:layout_width="290dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -90,12 +89,11 @@
             android:hint="Email"
             android:padding="5dp"
 
-            android:textColor="@color/colorInput"
             android:textColorHint="@color/colorHint"
             android:textSize="18sp">
         </EditText>
         <EditText
-            android:id="@+id/telefon_edittext"
+            android:id="@+id/telefon_edittextReserva"
             android:layout_width="290dp"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
@@ -103,7 +101,6 @@
             android:hint="@string/phone"
             android:padding="5dp"
 
-            android:textColor="@color/colorInput"
             android:textColorHint="@color/colorHint"
             android:textSize="18sp">
         </EditText>
@@ -136,7 +133,6 @@
             android:hint="Observacions"
             android:padding="5dp"
 
-            android:textColor="@color/colorInput"
             android:textColorHint="@color/colorHint"
             android:textSize="18sp">
         </EditText>
@@ -145,7 +141,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="150dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/rounded_shape_blau"
             android:text="Enviar">
 
         </Button>
