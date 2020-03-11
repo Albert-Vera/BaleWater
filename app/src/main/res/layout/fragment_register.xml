@@ -11,21 +11,28 @@
         android:id="@+id/imageproba"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="425dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="14dp"
+        android:layout_marginBottom="640dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </ImageView>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="60dp"
-        android:layout_marginLeft="120dp"
-        android:textSize="22sp"
-        android:textColor="@color/Negre"
         android:text="REGISTER"
+        android:textColor="@color/Negre"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,12 +34,31 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import static android.app.Activity.RESULT_OK;
 
+
+/**
+ * App Solo para probar el FireBase
+ * Subir datos reserva del cliente y mostrarlo en listado de clientes del menu
+ * Hacer login y que muestre tu foto de perfil y datos  en Main Menu.
+ * Hacer login con tu cuenta de Google y que se muestre foto de perfil y datos
+ *
+ *
+ * A la hora de hacer register tuve problemas.
+ * Al registrarse elijes una foto y se sube a Database de Firebase
+ * Per al intentar mostrarse en main Menu la foto de perfil y los datos,
+ * se muestran los datos del usuario pero la foto no se muestra si no Reinicias la App
+ * debido a que, como la foto tarda varios segundos en subir, pues la
+ * MainActivity hace varios intentos para mostrar la foto pero como aún no ha subido
+ * acaba por no mostrar la foto.
+ *
+ *
+ */
 
 public class RegisterFragment extends MyFragment implements View.OnClickListener {
 
@@ -79,6 +99,7 @@ public class RegisterFragment extends MyFragment implements View.OnClickListener
         verifyEmailButton.setOnClickListener(this);
         createAccountButton.setOnClickListener(this);
         cameraImageButton.setOnClickListener(this);
+
         updateUI(auth.getCurrentUser());
     }
 
@@ -97,12 +118,12 @@ public class RegisterFragment extends MyFragment implements View.OnClickListener
         }
     }
 
-    private void subirFoto() {
+    private void subirFoto(final String email, final String password) {
         if(path == null) return;
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        FirebaseStorage.getInstance().getReference(user.toString()+"AccountImage.jpg")
+        FirebaseStorage.getInstance().getReference("fotoUser/"+user.getEmail().toString()+"_Image.jpg")
                 .putFile(path)
                 .continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -119,18 +140,16 @@ public class RegisterFragment extends MyFragment implements View.OnClickListener
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.e("ABCD", "Subida a database users correcta.............");
-
-//                                mainActivity.setStoreState(true);
+                               // cabeceraDelMenu();
+                               // mainActivity.recreate;
                                 user.reload();
+
                                 navController.navigate(R.id.homeFragment);
                             }
-
                         });
                     }
                 });
-
     }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -140,7 +159,6 @@ public class RegisterFragment extends MyFragment implements View.OnClickListener
                     Toast toast1 = Toast.makeText(requireActivity(), "Primero inserta todos los datos !", Toast.LENGTH_SHORT);
                     toast1.setGravity(Gravity.CENTER | Gravity.LEFT, 250, 0);
                     toast1.show();
-
                     return;
                 }else {
                     previsualizarFoto();
@@ -149,8 +167,7 @@ public class RegisterFragment extends MyFragment implements View.OnClickListener
                 break;
             case R.id.createAccountButton:
                 createAccount(emailEditText.getText().toString(), passwordEditText.getText().toString());
-
-                navController.navigate(R.id.productListFragment);
+                //navController.navigate(R.id.productListFragment);
                 break;
             case R.id.verifyEmailButton:
                 sendEmailVerification();
@@ -164,16 +181,12 @@ public class RegisterFragment extends MyFragment implements View.OnClickListener
             permissionsAcepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
         }
     }
-
-
-
     private void updateUI(FirebaseUser firebaseUser) {
         if(firebaseUser != null){
             Log.w("ABCD", "De aqui me piro a fragmet home");
             navController.navigate(R.id.homeFragment);
         }
     }
-
     private void createAccount(final String email, final String password) {
         if (!validateForm()) {
             return;
@@ -187,8 +200,10 @@ public class RegisterFragment extends MyFragment implements View.OnClickListener
                             updateUI(auth.getCurrentUser());
                              Log.e("ABCD", "VOY A SUBIR FOTO");
 
-                            subirFoto();
+                            subirFoto(email, password);
+
                             Log.e("ABCD", "create GUAY ", task.getException());
+
                             signIn(email, password);
                         } else {
                             Log.e("ABCD", "createUserWithEmail:failure", task.getException());
@@ -197,7 +212,7 @@ public class RegisterFragment extends MyFragment implements View.OnClickListener
                 });
     }
 
-    private void signIn(String email, String password) {
+    public void signIn(String email, String password) {
         if (!validateForm()) {
             return;
         }
